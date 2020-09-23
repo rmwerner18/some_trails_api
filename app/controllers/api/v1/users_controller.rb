@@ -7,6 +7,11 @@ class Api::V1::UsersController < ApplicationController
         render json: { error: 'failed to create user' }, status: :not_acceptable
       end
     end
+
+    def show
+      user = User.find(params[:id])
+      render json: user, except: [:created_at, :updated_at]
+    end
    
     private
     def user_params
