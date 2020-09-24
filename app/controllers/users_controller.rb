@@ -10,12 +10,12 @@ class UsersController < ApplicationController
 
     def show
       user = User.find(params[:id])
-      render json: user, except: [:created_at, :updated_at]
+      render json: UserSerializer.new(user).to_serialized_json
     end
 
     def index
       users = User.all
-      render json: users, except: [:created_at, :updated_at]
+      render json: UserSerializer.new(users).to_serialized_json
     end
    
     private

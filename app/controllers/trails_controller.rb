@@ -1,11 +1,11 @@
 class TrailsController < ApplicationController
     def index
         trails = Trail.all
-        render json: trails, except: [:created_at, :updated_at]
+        render json: TrailSerializer.new(trails).to_serialized_json
     end
 
     def show
         trail = Trail.find(params[:id])
-        render json: trail, except: [:created_at, :updated_at]
+        render json: TrailSerializer.new(trail).to_serialized_json
     end
 end
