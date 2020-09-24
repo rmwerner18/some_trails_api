@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class UsersController < ApplicationController
     def create
       @user = User.create(user_params)
       if @user.valid?
@@ -11,6 +11,11 @@ class Api::V1::UsersController < ApplicationController
     def show
       user = User.find(params[:id])
       render json: user, except: [:created_at, :updated_at]
+    end
+
+    def index
+      users = User.all
+      render json: users, except: [:created_at, :updated_at]
     end
    
     private
