@@ -6,9 +6,9 @@ class HikeSerializer < ActiveModel::Serializer
   belongs_to :user
   belongs_to :trail
 
-  def photo
-    object.photo.service_url if object.photo.attached?
-  end
+  # def photo
+  #   self.photo.service_url if self.photo.attached?
+  # end
 
   def initialize(hikes)
     @hikes = hikes
