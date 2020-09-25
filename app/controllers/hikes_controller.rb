@@ -12,11 +12,18 @@ class HikesController < ApplicationController
     
     def create
         hike = Hike.create(hike_params)
-        render json: { hike: HikeSerializer.new(@hike) }, status: :created
+        render json: { hike: HikeSerializer.new(hike) }, status: :created
+    end
+
+    def photo
+        hike = Hike.find(params[:id])
+        if hike.photo.attached?
+            redirect_to rails_blob_url(hike.photo)
+        end
     end
 
     private
     def hike_params
-      params.require(:hike).permit(:user_id, :trail_id, :name, :start, :end, :length, :photos)
+      params.require(:hike).permit(:user_id, :trail_id, :name, :start, :end, :length, :photos, :photo)
     end
 end
