@@ -11,8 +11,9 @@ class HikesController < ApplicationController
     end
     
     def create
-        hike = Hike.create(hike_params)
-        render json: { hike: HikeSerializer.new(hike) }, status: :created
+        puts "hi there"
+        good_params = hike_params.to_h
+        hike = Hike.create(good_params)
     end
 
     def photo
