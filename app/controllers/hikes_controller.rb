@@ -13,8 +13,18 @@ class HikesController < ApplicationController
     def create
         good_params = hike_params.to_h
         hike = Hike.create(good_params)
-
+        # if hike.photo.attached?
+        #     hike.photos << rails_blob_url(hike.photo)
+        # end
         render json: { hike: HikeSerializer.new(hike) }, status: :created
+    end
+
+    def update
+        good_params = hike_params.to_h
+        hike = Hike.find(params[:id])
+        hike.update(hike_params)
+        hike.save
+        render json: hike
     end
 
     def photo
@@ -22,6 +32,11 @@ class HikesController < ApplicationController
         if hike.photo.attached?
             redirect_to rails_blob_url(hike.photo)
         end
+    end
+    
+    def destroy
+        hike = Hike.find(params[:id])
+        hike.delete
     end
 
     private
