@@ -1,7 +1,7 @@
 class HikeSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
-  attributes :id, :user_id, :trail_id, :name, :start, :end, :length, :photos, :trail
+  attributes :id, :user_id, :trail_id, :name, :start, :end, :length, :trail
 
   belongs_to :user
   belongs_to :trail

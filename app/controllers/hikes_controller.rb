@@ -16,7 +16,7 @@ class HikesController < ApplicationController
         # if hike.photo.attached?
         #     hike.photos << rails_blob_url(hike.photo)
         # end
-        render json: { hike: HikeSerializer.new(hike) }, status: :created
+        render json: HikeSerializer.new(hike).to_serialized_json, status: :created
     end
 
     def update
@@ -24,7 +24,7 @@ class HikesController < ApplicationController
         hike = Hike.find(params[:id])
         hike.update(hike_params)
         hike.save
-        render json: hike
+        render json: HikeSerializer.new(hike).to_serialized_json
     end
 
     def photo
