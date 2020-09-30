@@ -1,7 +1,10 @@
 class TrailsController < ApplicationController
     def index
-        Trail.get_trails
-        trails = Trail.all
+        if params[:location]
+            trails = Trail.get_trails(params[:location])
+        else
+            trails = Trail.all
+        end
         render json: TrailSerializer.new(trails).to_serialized_json
     end
 

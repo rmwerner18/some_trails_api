@@ -51,4 +51,6 @@ gem "faker", "~> 2.14"
 
 gem "rest-client"
 
+gem "geocoder"
+
 gem 'dotenv-rails', groups: [:development, :test]
