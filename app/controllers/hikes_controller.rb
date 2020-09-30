@@ -18,10 +18,11 @@ class HikesController < ApplicationController
         # end
         render json: HikeSerializer.new(hike).to_serialized_json, status: :created
     end
-
+    
     def update
         good_params = hike_params.to_h
         hike = Hike.find(params[:id])
+        hike.photo.purge
         hike.update(hike_params)
         hike.save
         render json: HikeSerializer.new(hike).to_serialized_json
