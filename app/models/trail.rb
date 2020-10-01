@@ -22,7 +22,7 @@ class Trail < ApplicationRecord
             if existing_trail 
                 trails_to_display << existing_trail
             else 
-                created_trail = Trail.create(name: trail["name"], length: trail["length"], difficulty: trail["difficulty"], summary: trail["summary"], image: trail["imgSqSmall"], stars: trail["stars"], location: trail["location"])
+                created_trail = Trail.create(name: trail["name"], length: trail["length"], difficulty: trail["difficulty"], summary: trail["summary"], image: trail["imgMedium"], stars: trail["stars"], location: trail["location"])
                 trails_to_display << created_trail
             end
         end
