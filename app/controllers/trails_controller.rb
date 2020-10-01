@@ -1,4 +1,6 @@
 class TrailsController < ApplicationController
+    # before_action :authorized, except: [:index] 
+
     def index
         if params[:location]
             trails = Trail.get_trails(params[:location])
