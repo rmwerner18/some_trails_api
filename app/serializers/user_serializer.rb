@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password, :bio, :image
+  attributes :id, :username, :bio, :image
 
   def initialize(users)
     @users = users
@@ -7,14 +7,15 @@ class UserSerializer < ActiveModel::Serializer
 
 
   def to_serialized_json
-    @users.to_json(:include => {
+    @users.to_json(
+      :include => {
       :hikes => {:only => [
         :id, :user_id, :trail_id, :name, :start, :end, :length, :photos, :photo
       ]}, 
       :favorites => {:only => [
         :trail_id
       ]}}, 
-      :except => [:created_at, :updated_at]
+      :except => [:created_at, :updated_at, :password_digest]
     )
   end
 
