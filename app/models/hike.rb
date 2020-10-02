@@ -4,7 +4,9 @@ class Hike < ApplicationRecord
 
     has_one_attached :photo
 
-    
+    def format_date
+        self.strftime("%B %d, %Y, %I:%M %p")
+    end
 
     # def formatted_start
     #     self.start.strftime("%B %d, %Y")

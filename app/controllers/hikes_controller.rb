@@ -1,4 +1,5 @@
 class HikesController < ApplicationController
+    skip_before_action :authorized, only: [:photo]
 
     def index
         hikes = Hike.all
@@ -12,6 +13,9 @@ class HikesController < ApplicationController
     
     def create
         good_params = hike_params.to_h
+        good_params["start"] = DateTime.parse(good_params["start"])
+        good_params["end"] = DateTime.parse(good_params["end"])
+
         hike = Hike.create(good_params)
         # if hike.photo.attached?
         #     hike.photos << rails_blob_url(hike.photo)

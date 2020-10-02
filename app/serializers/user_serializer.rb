@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :bio, :image
+  attributes :id, :username, 
+  # :bio, :image
 
   def initialize(users)
     @users = users
