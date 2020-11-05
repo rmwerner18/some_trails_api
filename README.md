@@ -1,10 +1,10 @@
-## TrailMixer 🏔🌞
-TrailMixer is a hiking companion that you can use to discover new trails across the US or log hikes with your friends!
+## SomeTrails 🏔🌞
+SomeTrails is a hiking companion that you can use to discover new trails across the US or log hikes with your friends!
 
 Demo: https://www.loom.com/share/d29b9b96a1dc4e79a14788ab5834ee51
 
 ## Frontend
-https://github.com/rmwerner18/trail_mixer_client
+https://github.com/rmwerner18/some_trails_client
 
 ## Tech Stack
 Ruby [2.6.1]
