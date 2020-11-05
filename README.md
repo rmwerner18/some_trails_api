@@ -17,7 +17,8 @@ run bundle install to install required dependencies
 run rails db:create to create a database locally.
 run rails db:migrate to create tables into the database.
 run rails s to run the server.
-Contributors
+
+## Contributors
 @Mimioj101 🐛
 
 ## Contact
